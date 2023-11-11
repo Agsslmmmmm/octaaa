@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Gradient Website Using TailwindCSS</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="bg-transparent fixed top-0 w-full z-50 backdrop-blur-md shadow-lg">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button"
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="absolute -inset-0.5"></span>
+            <span class="sr-only">Open main menu</span>
+            <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <a href="#home">
+              <img class="h-8 w-auto hover:scale-110 transition-transform duration-500" src="./assets/octa-tech.svg"
+                alt="Your Company">
+            </a>
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <!-- Bagian Dashboard -->
+              <a href="#home"
+                class="text-gray-600  px-3 py-2 text-xl font-medium hover:scale-110 transition-transform duration-500"
+                aria-current="page">Dashboard</a>
+
+              <!-- Bagian About -->
+              <a href="#about"
+                class="text-gray-600 hover:scale-110 transition-transform duration-500 text-xl px-3 py-2 text-sm font-medium">About</a>
+
+              <!-- Bagian Team -->
+              <a href="#team"
+                class="text-gray-600 hover:scale-110 transition-transform duration-500 px-3 py-2 text-xl font-medium">Team</a>
+
+              <!-- Bagian Contact -->
+              <a href="#service"
+                class="text-gray-600 hover:scale-110 transition-transform duration-500 px-3 py-2 text-xl font-medium">Service</a>
+
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <!-- Profile dropdown -->
+          <div class="relative ml-3">
+            <div>
+              <button type="button"
+                class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                <img class="h-8 w-8 rounded-full" src="./assets/user.png" alt="">
+              </button>
+            </div>
+
+            <!--
+                  Dropdown menu, show/hide based on menu state.
+      
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2 items-center justify-center">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="#home"
+          class="text-gray-600 block px-3 py-2 text-base font-medium hover:tracking-widest transition-all duration-500"
+          aria-current="page">Dashboard</a>
+        <a href="#about"
+          class="text-gray-600 block px-3 py-2 text-base font-medium hover:tracking-widest transition-all duration-500">About</a>
+        <a href="#team"
+          class="text-gray-600 block px-3 py-2 text-base font-medium hover:tracking-widest transition-all duration-500">Team</a>
+        <a href="#service"
+          class="text-gray-600 block px-3 py-2 text-base font-medium hover:tracking-widest transition-all duration-500">Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-48" id="home">
+    <div class="content mx-auto relative w-full flex justify-center py-0 h-screen">
+      <div class=" relative flex-1 p-6">
+        <h1 id="animation"
+          class="text-gray-600 text-4xl font-bold text-center opacity-0 transform -translate-y-10 transition duration-1000 ease-in-out">
+          Octa<span class="text-blue-600">Tech</span>
+        </h1>
+        <p id="paragraph-animation"
+          class="text-slate-800 text-2xl font-normal opacity-0 transform -translate-y-10 transition duration-1000 ease-in-out">
+          OctaTech is an innovative technology company dedicated to changing the world through advanced technology
+          solutions. We were founded with a vision to bridge technology gaps, deliver beneficial innovations, and
+          empower businesses and individuals to reach their full potential.
+        </p>
+        <div class="p-6 text-center border-gray-600">
+          <button
+            class="bg-transparent border-b text-gray-600 font-xl shadow-lg rounded-full py-2 px-4 pt-49 justify-cente items-center hover:tracking-widest transition-all duration-500 hover:scale-110">
+            Join Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 mt-18">
+    <div class="content mx-auto">
+      <div class="text-center">
+        <h2 class="text-3xl font-semibold text-2xl text-gray-700 about-animation-h2 animate animate-opacity-0"
+          id="animation">
+          About Octa<span class="text-blue-600">Tech</span>
+        </h2>
+        <p class="text-xl text-gray-500 mt-4 px-4 animate animate-opacity-0" id="paragraph-animation">
+          OctaTech is a leading technology company that is dedicated to driving innovation and solving complex
+          problems through cutting-edge technology solutions. Our journey began with a simple yet powerful
+          vision: to transform industries, empower individuals, and make a positive impact on the world.
+        </p>
+        <p class="mt-4 px-4 text-lg text-gray-500 animate animate-opacity-0" id="paragraph-animation">
+          With a team of passionate experts in various fields of technology, we work tirelessly to develop
+          software, applications, and solutions that are at the forefront of technological advancement. Our
+          commitment to excellence, innovation, and client satisfaction drives everything we do.
+        </p>
+        <p class="mt-4 px-4 text-lg text-gray-500 animate animate-opacity-0" id="paragraph-animation">
+          At OctaTech, we believe that technology has the power to shape the future. Whether it's creating
+          user-friendly applications, enhancing cybersecurity, or harnessing the potential of artificial
+          intelligence, we are dedicated to pushing the boundaries of what is possible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="mt-40 bg-transparent">
+    <div class="p-10 bg-transparent team-container entry-animation" id="teamContainer">
+      <h2 class="text-2xl text-gray-600 font-bold mb-4 text-center">Our Amazing Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Team Member 1 -->
+        <div
+          class="bg-transparent p-4 rounded-md shadow-xl hover:scale-110 transition-all duration-500 border-b animate-fadeInUp">
+          <img src="./assets/boy.png" alt="Team Member 1" class="w-full">
+          <h3 class="text-lg font-semibold text-gray-600">Agus Salim</h3>
+          <p class="text-gray-600">Front-end Developer</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div
+          class="bg-transparent p-4 rounded-md shadow-lg hover:scale-110 transition-all duration-500 border-b animate-fadeInUp">
+          <img src="assets/profile.png" alt="Team Member 2" class="w-full">
+          <h3 class="text-lg font-semibold text-gray-600">Alfarezi</h3>
+          <p class="text-gray-600">Back-end Developer</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div
+          class="bg-transparent p-4 rounded-md shadow-lg hover:scale-110 transition-all duration-500 border-b animate-fadeInUp">
+          <img src="./assets/user (1).png" alt="Team Member 3" class="w-full">
+          <h3 class="text-lg font-semibold text-gray-600">Ajis</h3>
+          <p class="text-gray-600">???</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="service">
+    <div class="container mx-auto p-8">
+      <h2 class="text-4xl text-gray-600 font-bold mb-8 text-center mt-40">Oct<span class="text-blue-600">Tech</span> Services</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="bg-transparent p-6 rounded-lg shadow-lg hover:scale-110 transition-all duration-500">
+          <h3 class="text-xl font-semibold mb-4">Web Development</h3>
+          <p class="text-gray-700">Crafting responsive and user-friendly websites tailored to your needs.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-transparent p-6 rounded-lg shadow-lg hover:scale-110 transition-all duration-500">
+          <h3 class="text-xl font-semibold mb-4">App Development</h3>
+          <p class="text-gray-700">Building innovative mobile and web applications to boost your business.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-transparent p-6 rounded-lg shadow-lg hover:scale-110 transition-all duration-500">
+          <h3 class="text-xl font-semibold mb-4">Design Solutions</h3>
+          <p class="text-gray-700">Creating visually stunning designs for your brand, from logos to UI/UX.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <!-- Gradient Background -->
+  <div
+    class="blob w-[800px] h-[800px] rounded-[999px] absolute top-0 right-0 -z-10 blur-3xl bg-opacity-60 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200"
+    style="position: fixed;"></div>
+  <div
+    class="blob w-[1000px] h-[1000px] rounded-[999px] absolute bottom-0 left-0 -z-10 blur-3xl bg-opacity-60 bg-gradient-to-r from-red-200 via-gray-100 to-blue-100"
+    style="position: fixed;"></div>
+  <div
+    class="blob w-[600px] h-[600px] rounded-[999px] absolute bottom-0 left-0 -z-10 blur-3xl bg-opacity-60 bg-gradient-to-r from-slate-100 via-teal-100 to-blue-100"
+    style="position: fixed;"></div>
+  <div
+    class="blob w-[300px] h-[300px] rounded-[999px] absolute bottom-[-10px] left-0 -z-10 blur-3xl bg-opacity-60 bg-gradient-to-r from-green-200 via-cyan-200 to-Fuchsia-300"
+    style="position: fixed;"></div>
+
+  <!-- Your JavaScript -->
+  <script src="app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+
+</html>
